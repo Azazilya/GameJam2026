@@ -312,6 +312,10 @@ MonoBehaviour:
   playerController: {fileID: 1822956297}
   mainCamera: {fileID: 519420031}
   attackCollider: {fileID: 230799149}
+  allPlayerRenderers:
+  - {fileID: 456792462}
+  - {fileID: 1609397173}
+  - {fileID: 230799147}
   rotationOffset: -180
   flipVerticalManual: 1
 --- !u!58 &230799149

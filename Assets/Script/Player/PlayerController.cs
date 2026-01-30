@@ -41,6 +41,7 @@ public class PlayerController : MonoBehaviour
     private float idleTimer;
     private int currentFrame;
     private bool isIdle;
+    private bool isSlowed = false;
 
     void Start()
     {
@@ -97,9 +98,22 @@ public class PlayerController : MonoBehaviour
         }
     }
 
+    public void SetSlowdown(bool slowed) => isSlowed = slowed;
+
     void FixedUpdate()
     {
-        if (currentState != null) rb.linearVelocity = moveInput * currentState.movementSpeed;
+        if (currentState != null)
+        {
+            float currentSpeed = currentState.movementSpeed;
+            
+            // Terapkan penalti jika sedang slow (charging)
+            if (isSlowed)
+            {
+                currentSpeed *= (1f - currentState.chargeMovementPenalty);
+            }
+
+            rb.linearVelocity = moveInput * currentSpeed;
+        }
     }
 
     void LateUpdate() => HandleDynamicCamera();

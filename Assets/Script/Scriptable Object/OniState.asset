@@ -16,6 +16,7 @@ MonoBehaviour:
   attackSpeed: 2
   defense: 7
   movementSpeed: 3
+  chargeMovementPenalty: 0.2
   headIdle:
   - {fileID: 3515636847780576716, guid: e364897afb5e61546969a65e58cf07bd, type: 3}
   headWalkDepan:
@@ -32,3 +33,11 @@ MonoBehaviour:
   - {fileID: -1578403688, guid: e364897afb5e61546969a65e58cf07bd, type: 3}
   - {fileID: -1113159389, guid: e364897afb5e61546969a65e58cf07bd, type: 3}
   - {fileID: -1964632043, guid: e364897afb5e61546969a65e58cf07bd, type: 3}
+  chargeThreshold: 0.5
+  superChargeThreshold: 13
+  holdFrameIndex: 1
+  flickerColor: {r: 1, g: 0, b: 0.201859, a: 1}
+  baseFlickerSpeed: 0.5
+  maxFlickerSpeed: 15
+  chargeDamageMultiplier: 1.8
+  superChargeMultiplier: 4
