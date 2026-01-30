@@ -5,6 +5,7 @@ public class PlayerStateData : ScriptableObject
 {
     [Header("Combat Stats")]
     public float attackDamage;
+    public float knockbackForce = 5f;
     public float attackSpeed;
     public float defense;
 

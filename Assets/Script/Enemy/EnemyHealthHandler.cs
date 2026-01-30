@@ -8,11 +8,14 @@ public class EnemyHealthHandler : MonoBehaviour
     [SerializeField] private Color damageColor = Color.red;
     [SerializeField] private float flashDuration = 0.1f;
 
+    private Rigidbody2D rb;
     private float currentHP;
+    private bool isKnockedBack; // Flag agar AI tahu kapan harus berhenti
     private Color originalColor;
 
     void Awake() // Menggunakan Awake untuk menyimpan warna asli sekali saja
     {
+        rb = GetComponent<Rigidbody2D>();
         if (enemyRenderer != null) originalColor = enemyRenderer.color;
     }
 
@@ -44,6 +47,31 @@ public class EnemyHealthHandler : MonoBehaviour
         StartCoroutine(FlashRed());
 
         if (currentHP <= 0) Die();
+    }
+
+    public void ApplyKnockback(Vector2 direction, float force)
+    {
+        if (gameObject.activeSelf)
+        {
+            StopCoroutine("KnockbackRoutine"); // Reset jika terkena hit lagi
+            StartCoroutine(KnockbackRoutine(direction, force));
+        }
+    }
+
+    private IEnumerator KnockbackRoutine(Vector2 direction, float force)
+    {
+        isKnockedBack = true;
+        
+        // Berikan dorongan instan menggunakan Impulse
+        rb.linearVelocity = Vector2.zero; 
+        rb.AddForce(direction * force, ForceMode2D.Impulse);
+
+        // Musuh terpental selama durasi ini (bisa disesuaikan, permintaan: 1 detik)
+        yield return new WaitForSeconds(1.0f);
+
+        // Hentikan paksa momentum agar musuh tidak meluncur selamanya
+        rb.linearVelocity = Vector2.zero;
+        isKnockedBack = false;
     }
 
     IEnumerator FlashRed()

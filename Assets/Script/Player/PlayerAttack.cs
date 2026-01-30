@@ -19,14 +19,13 @@ public class PlayerAttack : MonoBehaviour
     private bool isAttacking;
     private bool isCharging;
     private float chargeTimer;
-    private float flickerPhase;
+    private float flickerPhase; 
 
     void Update()
     {
         RotateHand();
         HandleInput();
         AnimateHand();
-        
         if (isCharging) ApplyFlicker();
     }
 
@@ -36,11 +35,9 @@ public class PlayerAttack : MonoBehaviour
         {
             isCharging = true;
             chargeTimer = 0;
-            currentFrame = 0;
+            currentFrame = 0; 
             flickerPhase = 0;
-            
-            // AKTIFKAN PERLAMBATAN
-            playerController.SetSlowdown(true);
+            playerController.SetSlowdown(true); // Memperlambat gerak
         }
 
         if (Input.GetMouseButton(0) && isCharging)
@@ -58,11 +55,8 @@ public class PlayerAttack : MonoBehaviour
     {
         isCharging = false;
         isAttacking = true;
-        ResetFlicker();
-        
-        // MATIKAN PERLAMBATAN
-        playerController.SetSlowdown(false);
-
+        ResetFlicker(); 
+        playerController.SetSlowdown(false); // Kembalikan kecepatan normal
         if (attackCollider != null) attackCollider.enabled = true;
     }
 
@@ -81,7 +75,7 @@ public class PlayerAttack : MonoBehaviour
     void AnimateHand()
     {
         if (playerController == null) return;
-        PlayerStateData state = playerController.GetCurrentState();
+        PlayerStateData state = playerController.GetCurrentState(); //
         if (state == null) return;
 
         Sprite[] targetArray = (isAttacking || isCharging) ? state.handAttack : state.handIdle;
@@ -147,19 +141,29 @@ public class PlayerAttack : MonoBehaviour
             EnemyHealthHandler enemy = collision.GetComponent<EnemyHealthHandler>();
             if (enemy != null)
             {
-                PlayerStateData state = playerController.GetCurrentState();
-                float finalDamage = state.attackDamage;
+                PlayerStateData state = playerController.GetCurrentState(); //
+                float damageMultiplier = 1f;
+                float knockbackMultiplier = 1f;
 
+                // Logika Charge: Makin lama ditahan, knockback bisa makin kuat
                 if (chargeTimer >= state.superChargeThreshold)
                 {
-                    finalDamage *= state.superChargeMultiplier;
+                    damageMultiplier = state.superChargeMultiplier;
+                    knockbackMultiplier = 2f; // Super charge memberi extra knockback
                 }
                 else if (chargeTimer >= state.chargeThreshold)
                 {
-                    finalDamage *= state.chargeDamageMultiplier;
+                    damageMultiplier = state.chargeDamageMultiplier;
+                    knockbackMultiplier = 1.5f;
                 }
 
-                enemy.TakeDamage(finalDamage);
+                // Kalkulasi arah Knockback (dari Player ke Musuh)
+                Vector2 knockbackDirection = (collision.transform.position - transform.position).normalized;
+                float finalKnockbackForce = state.knockbackForce * knockbackMultiplier;
+
+                // Kirim Damage & Knockback
+                enemy.TakeDamage(state.attackDamage * damageMultiplier);
+                enemy.ApplyKnockback(knockbackDirection, finalKnockbackForce); // Pastikan fungsi ini ada di script musuh
             }
         }
     }
