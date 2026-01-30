@@ -1108,6 +1108,37 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1542358152
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1542358153}
+  m_Layer: 0
+  m_Name: GameObject
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1542358153
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1542358152}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -0.16278887, y: 2.5035753, z: -0.07678871}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1609397171
 GameObject:
   m_ObjectHideFlags: 0
@@ -1341,6 +1372,7 @@ GameObject:
   - component: {fileID: 1689516853}
   - component: {fileID: 1689516852}
   - component: {fileID: 1689516855}
+  - component: {fileID: 1689516856}
   m_Layer: 0
   m_Name: enemy
   m_TagString: Untagged
@@ -1466,12 +1498,34 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5d67f59fdaa9a3f46b6c40e3c34b2d3d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  stats: {fileID: 0}
+  stats: {fileID: 11400000, guid: 66cdda6747e3cba408cfe5dcd01ca7cb, type: 2}
   currentState: 0
   detectionRadius: 5
   stopChasingRadius: 7
   roamRadius: 10
   waitAtPointTime: 2
+--- !u!195 &1689516856
+NavMeshAgent:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1689516851}
+  m_Enabled: 1
+  m_AgentTypeID: 0
+  m_Radius: 0.49999997
+  m_Speed: 3.5
+  m_Acceleration: 8
+  avoidancePriority: 50
+  m_AngularSpeed: 120
+  m_StoppingDistance: 0
+  m_AutoTraverseOffMeshLink: 1
+  m_AutoBraking: 1
+  m_AutoRepath: 1
+  m_Height: 0.99999994
+  m_BaseOffset: 0.49999997
+  m_WalkableMask: 4294967295
+  m_ObstacleAvoidanceType: 4
 --- !u!1 &1822956294
 GameObject:
   m_ObjectHideFlags: 0
@@ -1758,3 +1812,4 @@ SceneRoots:
   - {fileID: 358868139}
   - {fileID: 440082695}
   - {fileID: 1689516854}
+  - {fileID: 1542358153}
