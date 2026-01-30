@@ -10,9 +10,9 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: af9d557f5a900aa4cb55f66e7ab3233e, type: 3}
-  m_Name: BassicEnemy
+  m_Name: BasicEnemy
   m_EditorClassIdentifier: 
   maxHP: 20
-  movementSpeed: 5
-  attackDamage: 2
+  movementSpeed: 3
+  attackDamage: 5
   defense: 4

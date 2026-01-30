@@ -29,6 +29,6 @@ MonoBehaviour:
   - {fileID: 910760245, guid: e364897afb5e61546969a65e58cf07bd, type: 3}
   - {fileID: -1855651092, guid: e364897afb5e61546969a65e58cf07bd, type: 3}
   handAttack:
-  - {fileID: -1545159191, guid: e364897afb5e61546969a65e58cf07bd, type: 3}
-  - {fileID: 330774539, guid: e364897afb5e61546969a65e58cf07bd, type: 3}
-  - {fileID: -402832880, guid: e364897afb5e61546969a65e58cf07bd, type: 3}
+  - {fileID: -1578403688, guid: e364897afb5e61546969a65e58cf07bd, type: 3}
+  - {fileID: -1113159389, guid: e364897afb5e61546969a65e58cf07bd, type: 3}
+  - {fileID: -1964632043, guid: e364897afb5e61546969a65e58cf07bd, type: 3}
