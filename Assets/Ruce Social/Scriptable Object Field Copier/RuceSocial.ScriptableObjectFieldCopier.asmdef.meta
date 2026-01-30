@@ -1,0 +1,14 @@
+fileFormatVersion: 2
+guid: 7a667ec6f4a6b5c4eb4db14bae1c806e
+AssemblyDefinitionImporter:
+  externalObjects: {}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 260830
+  packageName: Scriptable Object Field Copier
+  packageVersion: 1.0
+  assetPath: Assets/Ruce Social/Scriptable Object Field Copier/RuceSocial.ScriptableObjectFieldCopier.asmdef
+  uploadId: 605785
