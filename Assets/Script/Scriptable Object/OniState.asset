@@ -13,6 +13,7 @@ MonoBehaviour:
   m_Name: OniState
   m_EditorClassIdentifier: 
   attackDamage: 10
+  knockbackForce: 3
   attackSpeed: 2
   defense: 7
   movementSpeed: 3

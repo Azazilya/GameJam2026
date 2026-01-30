@@ -13,6 +13,7 @@ MonoBehaviour:
   m_Name: KitsuneState
   m_EditorClassIdentifier: 
   attackDamage: 4
+  knockbackForce: 1
   attackSpeed: 6
   defense: 3
   movementSpeed: 7
