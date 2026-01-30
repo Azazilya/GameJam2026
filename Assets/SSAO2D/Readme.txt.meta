@@ -1,0 +1,15 @@
+fileFormatVersion: 2
+guid: e5f918465bf874643a60252c92cba005
+timeCreated: 1486900522
+licenseType: Store
+TextScriptImporter:
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 82726
+  packageName: SSAO2D
+  packageVersion: 1.1
+  assetPath: Assets/SSAO2D/Readme.txt
+  uploadId: 176760

@@ -1,0 +1,34 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 269c1fe97c8726c4b9ec0b7c4816bf21, type: 3}
+  m_Name: OniState
+  m_EditorClassIdentifier: 
+  attackDamage: 10
+  attackSpeed: 2
+  defense: 7
+  movementSpeed: 3
+  headIdle:
+  - {fileID: 3515636847780576716, guid: e364897afb5e61546969a65e58cf07bd, type: 3}
+  headWalkDepan:
+  - {fileID: -4488631467225459115, guid: e364897afb5e61546969a65e58cf07bd, type: 3}
+  headWalkBelakang:
+  - {fileID: 5588575825370393132, guid: e364897afb5e61546969a65e58cf07bd, type: 3}
+  headWalkSamping:
+  - {fileID: 1614514576324250236, guid: e364897afb5e61546969a65e58cf07bd, type: 3}
+  handIdle:
+  - {fileID: 262294191, guid: e364897afb5e61546969a65e58cf07bd, type: 3}
+  - {fileID: 910760245, guid: e364897afb5e61546969a65e58cf07bd, type: 3}
+  - {fileID: -1855651092, guid: e364897afb5e61546969a65e58cf07bd, type: 3}
+  handAttack:
+  - {fileID: -1545159191, guid: e364897afb5e61546969a65e58cf07bd, type: 3}
+  - {fileID: 330774539, guid: e364897afb5e61546969a65e58cf07bd, type: 3}
+  - {fileID: -402832880, guid: e364897afb5e61546969a65e58cf07bd, type: 3}
