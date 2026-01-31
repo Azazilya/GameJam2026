@@ -16,6 +16,8 @@ MonoBehaviour:
   knockbackForce: 3
   attackSpeed: 2
   defense: 7
+  hpRegenRate: 1
+  hpRegenDelay: 5
   movementSpeed: 3
   chargeMovementPenalty: 0.2
   headIdle:

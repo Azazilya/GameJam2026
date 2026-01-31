@@ -16,5 +16,5 @@ MonoBehaviour:
   currentHP: 0
   maxStamina: 100
   currentStamina: 100
-  staminaRegenRate: 10
-  regenDelay: 2
+  staminaRegenRate: 2
+  regenDelay: 4

@@ -9,6 +9,10 @@ public class PlayerStateData : ScriptableObject
     public float attackSpeed;
     public float defense;
 
+    [Header("HP Passive Regen")]
+    public float hpRegenRate = 1f; // Jumlah HP per detik
+    public float hpRegenDelay = 5f; // Waktu tunggu setelah terkena damage sebelum regen mulai
+
     [Header("Movement Stats")]
     public float movementSpeed;
     [Range(0, 1)] public float chargeMovementPenalty = 0.5f;

@@ -10,6 +10,7 @@ public class PlayerHealthHandler : MonoBehaviour
     [SerializeField] private float flashDuration = 0.15f;
     
     private float staminaRegenTimer;
+    private float hpRegenTimer;
     private Color[] originalColors;
     private float lastStaminaDebug; // Untuk membatasi spam debug stamina
 
@@ -30,15 +31,34 @@ public class PlayerHealthHandler : MonoBehaviour
     void Update()
     {
         HandleStaminaRegen();
+        HandleHPPassiveRegen();
+    }
+
+    private void HandleHPPassiveRegen()
+    {
+        // Cek jika HP belum penuh
+        if (stats.currentHP < stats.maxHP)
+        {
+            hpRegenTimer += Time.deltaTime;
+
+            // Jika sudah melewati delay (misal 5 detik setelah damage terakhir)
+            if (hpRegenTimer >= 5f) // Ganti '5f' dengan stats.hpRegenDelay jika sudah ditambah ke ScriptableObject
+            {
+                float regenAmount = 1f * Time.deltaTime; // Ganti '1f' dengan stats.hpRegenRate
+                Heal(regenAmount);
+            }
+        }
     }
 
     public void TakeDamage(float amount)
     {
         stats.currentHP -= amount;
         stats.currentHP = Mathf.Clamp(stats.currentHP, 0, stats.maxHP);
+        hpRegenTimer = 0f;
 
         // DEBUG HP
         Debug.Log($"<color=red>Damage Taken:</color> -{amount} | Current HP: {stats.currentHP}/{stats.maxHP}");
+        
 
         StopAllCoroutines();
         StartCoroutine(DamageFlash());
