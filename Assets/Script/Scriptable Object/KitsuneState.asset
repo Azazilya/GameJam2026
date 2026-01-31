@@ -19,21 +19,19 @@ MonoBehaviour:
   movementSpeed: 7
   chargeMovementPenalty: 0.4
   headIdle:
-  - {fileID: 71229351134051963, guid: e364897afb5e61546969a65e58cf07bd, type: 3}
+  - {fileID: -8760881154875911485, guid: 8e646161bde902448ae66a3f49c0c615, type: 3}
   headWalkDepan:
-  - {fileID: 7696043144293967664, guid: e364897afb5e61546969a65e58cf07bd, type: 3}
+  - {fileID: -8760881154875911485, guid: 8e646161bde902448ae66a3f49c0c615, type: 3}
   headWalkBelakang:
-  - {fileID: -6283274204897527148, guid: e364897afb5e61546969a65e58cf07bd, type: 3}
+  - {fileID: 8358420791269900956, guid: 8e646161bde902448ae66a3f49c0c615, type: 3}
   headWalkSamping:
-  - {fileID: 7951242180689583707, guid: e364897afb5e61546969a65e58cf07bd, type: 3}
+  - {fileID: 2206111463630835515, guid: 8e646161bde902448ae66a3f49c0c615, type: 3}
   handIdle:
-  - {fileID: 262294191, guid: e364897afb5e61546969a65e58cf07bd, type: 3}
-  - {fileID: 910760245, guid: e364897afb5e61546969a65e58cf07bd, type: 3}
-  - {fileID: -1855651092, guid: e364897afb5e61546969a65e58cf07bd, type: 3}
+  - {fileID: -6349892941942615463, guid: 8e646161bde902448ae66a3f49c0c615, type: 3}
   handAttack:
-  - {fileID: -1578403688, guid: e364897afb5e61546969a65e58cf07bd, type: 3}
-  - {fileID: -1113159389, guid: e364897afb5e61546969a65e58cf07bd, type: 3}
-  - {fileID: -1964632043, guid: e364897afb5e61546969a65e58cf07bd, type: 3}
+  - {fileID: -6349892941942615463, guid: 8e646161bde902448ae66a3f49c0c615, type: 3}
+  - {fileID: 2955596463114726245, guid: 8e646161bde902448ae66a3f49c0c615, type: 3}
+  - {fileID: -8642776924209775229, guid: 8e646161bde902448ae66a3f49c0c615, type: 3}
   chargeThreshold: 0.5
   superChargeThreshold: 7
   holdFrameIndex: 1

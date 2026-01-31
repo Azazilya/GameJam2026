@@ -20,19 +20,16 @@ MonoBehaviour:
   knockbackForce: 10
   movementSpeed: 4
   headIdle:
-  - {fileID: 3515636847780576716, guid: e364897afb5e61546969a65e58cf07bd, type: 3}
+  - {fileID: -1426482461835427404, guid: 8e646161bde902448ae66a3f49c0c615, type: 3}
   headWalkDepan:
-  - {fileID: -4488631467225459115, guid: e364897afb5e61546969a65e58cf07bd, type: 3}
+  - {fileID: -1426482461835427404, guid: 8e646161bde902448ae66a3f49c0c615, type: 3}
   headWalkBelakang:
-  - {fileID: 5588575825370393132, guid: e364897afb5e61546969a65e58cf07bd, type: 3}
+  - {fileID: -1426482461835427404, guid: 8e646161bde902448ae66a3f49c0c615, type: 3}
   headWalkSamping:
-  - {fileID: 1614514576324250236, guid: e364897afb5e61546969a65e58cf07bd, type: 3}
+  - {fileID: 2594096078374092371, guid: 8e646161bde902448ae66a3f49c0c615, type: 3}
   handIdle:
-  - {fileID: 262294191, guid: e364897afb5e61546969a65e58cf07bd, type: 3}
-  - {fileID: 910760245, guid: e364897afb5e61546969a65e58cf07bd, type: 3}
-  - {fileID: -1855651092, guid: e364897afb5e61546969a65e58cf07bd, type: 3}
+  - {fileID: 8716704379371321788, guid: 8e646161bde902448ae66a3f49c0c615, type: 3}
   handAttack:
-  - {fileID: -1578403688, guid: e364897afb5e61546969a65e58cf07bd, type: 3}
-  - {fileID: -1113159389, guid: e364897afb5e61546969a65e58cf07bd, type: 3}
-  - {fileID: -1964632043, guid: e364897afb5e61546969a65e58cf07bd, type: 3}
+  - {fileID: 8716704379371321788, guid: 8e646161bde902448ae66a3f49c0c615, type: 3}
+  - {fileID: -1200645181861579908, guid: 8e646161bde902448ae66a3f49c0c615, type: 3}
   bossThemeColor: {r: 1, g: 1, b: 1, a: 1}

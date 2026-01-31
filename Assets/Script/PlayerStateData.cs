@@ -23,6 +23,12 @@ public class PlayerStateData : ScriptableObject
     public Sprite[] handIdle;
     public Sprite[] handAttack;
 
+    // Tambahkan di dalam class PlayerStateData
+    [Header("Attack Type Settings")]
+    public bool useRotateAttack; // Checkbox: Rotate vs Animation Based
+    public float rotateAngle = 90f; // Seberapa jauh ayunan rotasi (derajat)
+    public float rotateDuration = 0.1f; // Kecepatan ayunan
+
     [Header("Charge Attack Settings")]
     public float chargeThreshold = 0.5f;
     public float superChargeThreshold = 7f;

@@ -1,4 +1,5 @@
 using UnityEngine;
+using System.Collections;
 using System.Collections.Generic;
 
 public class PlayerAttack : MonoBehaviour
@@ -19,7 +20,8 @@ public class PlayerAttack : MonoBehaviour
     private bool isAttacking;
     private bool isCharging;
     private float chargeTimer;
-    private float flickerPhase; 
+    private float flickerPhase;
+    private bool isRotating; 
 
     void Update()
     {
@@ -54,14 +56,65 @@ public class PlayerAttack : MonoBehaviour
     void ExecuteAttack()
     {
         isCharging = false;
-        isAttacking = true;
         ResetFlicker(); 
-        playerController.SetSlowdown(false); // Kembalikan kecepatan normal
+        playerController.SetSlowdown(false);
+        
+        PlayerStateData state = playerController.GetCurrentState();
+
+        if (state.useRotateAttack)
+        {
+            // JALANKAN TIPE ROTASI
+            StartCoroutine(RotateAttackRoutine(state));
+        }
+        else
+        {
+            // JALANKAN TIPE ANIMASI (Logika lama)
+            isAttacking = true;
+            if (attackCollider != null) attackCollider.enabled = true;
+        }
+    }
+
+    private IEnumerator RotateAttackRoutine(PlayerStateData state)
+    {
+        isAttacking = true; // Tetap true agar trigger damage bekerja
+        isRotating = true;
         if (attackCollider != null) attackCollider.enabled = true;
+
+        Quaternion startRotation = transform.localRotation;
+        // Tentukan arah ayunan (misal: memutar searah jarum jam)
+        Quaternion targetRotation = startRotation * Quaternion.Euler(0, 0, state.rotateAngle);
+
+        float elapsed = 0;
+        // 1. Ayunan ke depan
+        while (elapsed < state.rotateDuration)
+        {
+            elapsed += Time.deltaTime;
+            transform.localRotation = Quaternion.Slerp(startRotation, targetRotation, elapsed / state.rotateDuration);
+            yield return null;
+        }
+
+        // 2. Jeda sangat singkat (opsional)
+        yield return new WaitForSeconds(0.05f);
+
+        // 3. Matikan collider lebih awal agar tidak hit dua kali saat kembali
+        if (attackCollider != null) attackCollider.enabled = false;
+
+        // 4. Kembali ke posisi awal
+        elapsed = 0;
+        while (elapsed < state.rotateDuration)
+        {
+            elapsed += Time.deltaTime;
+            transform.localRotation = Quaternion.Slerp(targetRotation, startRotation, elapsed / state.rotateDuration);
+            yield return null;
+        }
+
+        isAttacking = false;
+        isRotating = false;
     }
 
     void RotateHand()
     {
+        if (mainCamera == null || isRotating) return;
         if (mainCamera == null) return;
         Vector3 mousePos = mainCamera.ScreenToWorldPoint(new Vector3(Input.mousePosition.x, Input.mousePosition.y, -mainCamera.transform.position.z));
         Vector2 dir = mousePos - transform.position;
@@ -74,6 +127,7 @@ public class PlayerAttack : MonoBehaviour
 
     void AnimateHand()
     {
+        if (playerController == null || isRotating) return;
         if (playerController == null) return;
         PlayerStateData state = playerController.GetCurrentState(); //
         if (state == null) return;
