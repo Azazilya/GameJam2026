@@ -13,7 +13,7 @@ TagManager:
   - Player
   - Water
   - UI
-  - Player
+  - Map
   - Obstacle
   - Hiasan
   - Background
@@ -42,6 +42,9 @@ TagManager:
   m_SortingLayers:
   - name: Default
     uniqueID: 0
+    locked: 0
+  - name: Map
+    uniqueID: 2002719893
     locked: 0
   m_RenderingLayers:
   - Default
