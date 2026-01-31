@@ -1,6 +1,6 @@
 using UnityEngine;
 
-public class InventoryUI : MonoBehaviour
+public class InventoryUIdeprecated : MonoBehaviour
 {
     public GameObject inventoryPanel;
 
