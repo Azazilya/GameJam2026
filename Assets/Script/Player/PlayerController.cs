@@ -27,6 +27,7 @@ public class PlayerController : MonoBehaviour
     [SerializeField] private SpriteRenderer headRenderer; 
 
     private Rigidbody2D rb;
+    public GameObject InventoryUI;
     private Vector2 moveInput;
 
     [Header("Dynamic Camera Settings")]
@@ -81,12 +82,13 @@ public class PlayerController : MonoBehaviour
             lastMoveInput = moveInput; // Catat arah terakhir untuk dash
         }
 
-        // Ganti fungsi Q menjadi Coroutine
+        // Ganti fungsi Q menjadi Coroutine lifjlediojf
         if (Input.GetKeyDown(KeyCode.Q)) StartCoroutine(SwitchStateRoutine());
 
         HandleIdleLogic();
         HandleAnimation(); 
-        SyncHeadWithBody(); 
+        SyncHeadWithBody();
+
     }
 
     private IEnumerator SwitchStateRoutine()
