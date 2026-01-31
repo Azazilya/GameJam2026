@@ -39,7 +39,8 @@ public class GameManager : Singleton<GameManager>
         FadeIn(1f);
         DOVirtual.DelayedCall(1f, () =>
         {
-            UnityEngine.SceneManagement.SceneManager.LoadScene(sceneName);
+            SceneLoadManager.sceneToLoad = sceneName;
+            UnityEngine.SceneManagement.SceneManager.LoadScene("LoadingScreen");
         });
     }
 }
