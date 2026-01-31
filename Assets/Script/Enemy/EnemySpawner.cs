@@ -3,46 +3,21 @@ using UnityEngine;
 public class EnemySpawner : MonoBehaviour
 {
     [Header("Spawner Settings")]
-    public string enemyTag; 
+    public string enemyTag; // Samakan dengan tag di ObjectPooler
     public float spawnInterval = 3f;
     public float spawnRadius = 5f;
 
-    [Header("Limit Settings")]
-    [SerializeField] private bool useLimit = true;
-    [SerializeField] private int maxEnemiesInWorld = 10;
-    [SerializeField] private float checkInterval = 0.5f; // Optimasi: tidak cek jumlah setiap frame
-
-    private float spawnTimer;
-    private float checkTimer;
-    private int currentEnemyCount;
+    private float timer;
 
     void Update()
     {
-        spawnTimer += Time.deltaTime;
-        checkTimer += Time.deltaTime;
+        timer += Time.deltaTime;
 
-        // Optimasi: Hanya hitung musuh di dunia setiap 'checkInterval' detik
-        if (checkTimer >= checkInterval)
+        if (timer >= spawnInterval)
         {
-            UpdateEnemyCount();
-            checkTimer = 0;
+            SpawnEnemy();
+            timer = 0;
         }
-
-        if (spawnTimer >= spawnInterval)
-        {
-            if (!useLimit || currentEnemyCount < maxEnemiesInWorld)
-            {
-                SpawnEnemy();
-            }
-            spawnTimer = 0;
-        }
-    }
-
-    void UpdateEnemyCount()
-    {
-        // Mencari semua objek aktif dengan tag tertentu
-        GameObject[] enemies = GameObject.FindGameObjectsWithTag(enemyTag);
-        currentEnemyCount = enemies.Length;
     }
 
     void SpawnEnemy()

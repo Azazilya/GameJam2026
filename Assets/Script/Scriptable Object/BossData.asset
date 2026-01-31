@@ -15,7 +15,7 @@ MonoBehaviour:
   bossName: Hacker
   maxHP: 400
   defense: 10
-  attackDamage: 10
+  attackDamage: 20
   attackSpeed: 1
   knockbackForce: 10
   movementSpeed: 4

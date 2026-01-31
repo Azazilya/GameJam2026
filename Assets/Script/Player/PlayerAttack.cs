@@ -72,30 +72,23 @@ public class PlayerAttack : MonoBehaviour
             isAttacking = true;
             if (attackCollider != null) attackCollider.enabled = true;
         }
+
+        isAttacking = false;
+        isRotating = false;
     }
 
     private IEnumerator RotateAttackRoutine(PlayerStateData state)
     {
-        isAttacking = true; 
+        isAttacking = true; // Tetap true agar trigger damage bekerja
         isRotating = true;
         if (attackCollider != null) attackCollider.enabled = true;
 
-        // 1. CEK MIRROR: Jika handRenderer flipY aktif, balikkan arah rotasi
-        // Kita gunakan pengali (multiplier) 1 atau -1
-        float rotationDirection = handRenderer.flipY ? -1f : 1f;
-        
-        // Jika Anda menggunakan flipVerticalManual, pastikan logika di bawah ini 
-        // selaras dengan cara Anda membalikkan tangan di RotateHand()
-        if (flipVerticalManual) rotationDirection *= -1f; 
-
         Quaternion startRotation = transform.localRotation;
-        
-        // 2. TERAPKAN ARAH: Kalikan rotateAngle dengan rotationDirection
-        float targetAngle = state.rotateAngle * rotationDirection;
-        Quaternion targetRotation = startRotation * Quaternion.Euler(0, 0, targetAngle);
+        // Tentukan arah ayunan (misal: memutar searah jarum jam)
+        Quaternion targetRotation = startRotation * Quaternion.Euler(0, 0, state.rotateAngle);
 
         float elapsed = 0;
-        // Ayunan ke depan
+        // 1. Ayunan ke depan
         while (elapsed < state.rotateDuration)
         {
             elapsed += Time.deltaTime;
@@ -103,11 +96,13 @@ public class PlayerAttack : MonoBehaviour
             yield return null;
         }
 
+        // 2. Jeda sangat singkat (opsional)
         yield return new WaitForSeconds(0.05f);
 
+        // 3. Matikan collider lebih awal agar tidak hit dua kali saat kembali
         if (attackCollider != null) attackCollider.enabled = false;
 
-        // Kembali ke posisi awal
+        // 4. Kembali ke posisi awal
         elapsed = 0;
         while (elapsed < state.rotateDuration)
         {
@@ -198,49 +193,34 @@ public class PlayerAttack : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        // Cek tag musuh atau boss
-        if (isAttacking && (collision.CompareTag("Enemy") || collision.CompareTag("Boss")))
+        if (isAttacking && collision.CompareTag("Enemy"))
         {
-            PlayerStateData state = playerController.GetCurrentState();
-            float damageMultiplier = 1f;
-
-            // --- Logika Charge Multiplier (Sesuaikan jika kamu punya logika khusus) ---
-            if (chargeTimer >= state.superChargeThreshold) damageMultiplier = 2.5f;
-            else if (chargeTimer >= state.chargeThreshold) damageMultiplier = 1.5f;
-
-            float finalDamage = state.attackDamage * damageMultiplier;
-            bool hitSuccessful = false;
-
-            // 1. CEK JIKA TARGET ADALAH MUSUH BIASA
             EnemyHealthHandler enemy = collision.GetComponent<EnemyHealthHandler>();
             if (enemy != null)
             {
-                enemy.TakeDamage(finalDamage);
-                enemy.ApplyKnockback((collision.transform.position - transform.position).normalized, state.knockbackForce);
-                hitSuccessful = true;
-            }
-            // 2. CEK JIKA TARGET ADALAH BOSS
-            else 
-            {
-                BossHealthHandler boss = collision.GetComponent<BossHealthHandler>();
-                if (boss != null)
-                {
-                    boss.TakeDamage(finalDamage);
-                    boss.ApplyKnockback((collision.transform.position - transform.position).normalized, state.knockbackForce);
-                    hitSuccessful = true;
-                }
-            }
+                PlayerStateData state = playerController.GetCurrentState(); //
+                float damageMultiplier = 1f;
+                float knockbackMultiplier = 1f;
 
-            // 3. LOGIKA LIFESTEAL (Hanya berjalan jika serangan berhasil mengenai target)
-            if (hitSuccessful)
-            {
-                float lifestealAmount = finalDamage * 0.35f;
-                PlayerHealthHandler playerHealth = GetComponentInParent<PlayerHealthHandler>();
-                if (playerHealth != null)
+                // Logika Charge: Makin lama ditahan, knockback bisa makin kuat
+                if (chargeTimer >= state.superChargeThreshold)
                 {
-                    playerHealth.Heal(lifestealAmount);
-                    Debug.Log($"<color=magenta>Lifesteal!</color> Restored: {lifestealAmount} from {collision.name}");
+                    damageMultiplier = state.superChargeMultiplier;
+                    knockbackMultiplier = 2f; // Super charge memberi extra knockback
                 }
+                else if (chargeTimer >= state.chargeThreshold)
+                {
+                    damageMultiplier = state.chargeDamageMultiplier;
+                    knockbackMultiplier = 1.5f;
+                }
+
+                // Kalkulasi arah Knockback (dari Player ke Musuh)
+                Vector2 knockbackDirection = (collision.transform.position - transform.position).normalized;
+                float finalKnockbackForce = state.knockbackForce * knockbackMultiplier;
+
+                // Kirim Damage & Knockback
+                enemy.TakeDamage(state.attackDamage * damageMultiplier);
+                enemy.ApplyKnockback(knockbackDirection, finalKnockbackForce); // Pastikan fungsi ini ada di script musuh
             }
         }
     }
