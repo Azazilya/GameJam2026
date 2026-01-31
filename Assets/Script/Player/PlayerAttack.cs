@@ -72,6 +72,9 @@ public class PlayerAttack : MonoBehaviour
             isAttacking = true;
             if (attackCollider != null) attackCollider.enabled = true;
         }
+
+        isAttacking = false;
+        isRotating = false;
     }
 
     private IEnumerator RotateAttackRoutine(PlayerStateData state)
