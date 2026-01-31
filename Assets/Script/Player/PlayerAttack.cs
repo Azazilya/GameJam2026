@@ -72,23 +72,30 @@ public class PlayerAttack : MonoBehaviour
             isAttacking = true;
             if (attackCollider != null) attackCollider.enabled = true;
         }
-
-        isAttacking = false;
-        isRotating = false;
     }
 
     private IEnumerator RotateAttackRoutine(PlayerStateData state)
     {
-        isAttacking = true; // Tetap true agar trigger damage bekerja
+        isAttacking = true; 
         isRotating = true;
         if (attackCollider != null) attackCollider.enabled = true;
 
+        // 1. CEK MIRROR: Jika handRenderer flipY aktif, balikkan arah rotasi
+        // Kita gunakan pengali (multiplier) 1 atau -1
+        float rotationDirection = handRenderer.flipY ? -1f : 1f;
+        
+        // Jika Anda menggunakan flipVerticalManual, pastikan logika di bawah ini 
+        // selaras dengan cara Anda membalikkan tangan di RotateHand()
+        if (flipVerticalManual) rotationDirection *= -1f; 
+
         Quaternion startRotation = transform.localRotation;
-        // Tentukan arah ayunan (misal: memutar searah jarum jam)
-        Quaternion targetRotation = startRotation * Quaternion.Euler(0, 0, state.rotateAngle);
+        
+        // 2. TERAPKAN ARAH: Kalikan rotateAngle dengan rotationDirection
+        float targetAngle = state.rotateAngle * rotationDirection;
+        Quaternion targetRotation = startRotation * Quaternion.Euler(0, 0, targetAngle);
 
         float elapsed = 0;
-        // 1. Ayunan ke depan
+        // Ayunan ke depan
         while (elapsed < state.rotateDuration)
         {
             elapsed += Time.deltaTime;
@@ -96,13 +103,11 @@ public class PlayerAttack : MonoBehaviour
             yield return null;
         }
 
-        // 2. Jeda sangat singkat (opsional)
         yield return new WaitForSeconds(0.05f);
 
-        // 3. Matikan collider lebih awal agar tidak hit dua kali saat kembali
         if (attackCollider != null) attackCollider.enabled = false;
 
-        // 4. Kembali ke posisi awal
+        // Kembali ke posisi awal
         elapsed = 0;
         while (elapsed < state.rotateDuration)
         {
@@ -196,6 +201,7 @@ public class PlayerAttack : MonoBehaviour
     // Cek tag musuh atau boss
     if (isAttacking && (collision.CompareTag("Enemy") || collision.CompareTag("Boss")))
     {
+<<<<<<< HEAD
         PlayerStateData state = playerController.GetCurrentState();
         float damageMultiplier = 1f;
 
@@ -235,6 +241,51 @@ public class PlayerAttack : MonoBehaviour
             {
                 playerHealth.Heal(lifestealAmount);
                 Debug.Log($"<color=magenta>Lifesteal!</color> Restored: {lifestealAmount} from {collision.name}");
+=======
+        // Cek tag musuh atau boss
+        if (isAttacking && (collision.CompareTag("Enemy") || collision.CompareTag("Boss")))
+        {
+            PlayerStateData state = playerController.GetCurrentState();
+            float damageMultiplier = 1f;
+
+            // --- Logika Charge Multiplier (Sesuaikan jika kamu punya logika khusus) ---
+            if (chargeTimer >= state.superChargeThreshold) damageMultiplier = 2.5f;
+            else if (chargeTimer >= state.chargeThreshold) damageMultiplier = 1.5f;
+
+            float finalDamage = state.attackDamage * damageMultiplier;
+            bool hitSuccessful = false;
+
+            // 1. CEK JIKA TARGET ADALAH MUSUH BIASA
+            EnemyHealthHandler enemy = collision.GetComponent<EnemyHealthHandler>();
+            if (enemy != null)
+            {
+                enemy.TakeDamage(finalDamage);
+                enemy.ApplyKnockback((collision.transform.position - transform.position).normalized, state.knockbackForce);
+                hitSuccessful = true;
+            }
+            // 2. CEK JIKA TARGET ADALAH BOSS
+            else 
+            {
+                BossHealthHandler boss = collision.GetComponent<BossHealthHandler>();
+                if (boss != null)
+                {
+                    boss.TakeDamage(finalDamage);
+                    boss.ApplyKnockback((collision.transform.position - transform.position).normalized, state.knockbackForce);
+                    hitSuccessful = true;
+                }
+            }
+
+            // 3. LOGIKA LIFESTEAL (Hanya berjalan jika serangan berhasil mengenai target)
+            if (hitSuccessful)
+            {
+                float lifestealAmount = finalDamage * 0.35f;
+                PlayerHealthHandler playerHealth = GetComponentInParent<PlayerHealthHandler>();
+                if (playerHealth != null)
+                {
+                    playerHealth.Heal(lifestealAmount);
+                    Debug.Log($"<color=magenta>Lifesteal!</color> Restored: {lifestealAmount} from {collision.name}");
+                }
+>>>>>>> 5cd768991e3a4cb089a0f1d9f365cadda12d7b5e
             }
         }
     }

@@ -1,4 +1,3 @@
-using DG.Tweening;
 using System.Collections;
 using TMPro;
 using UnityEngine;
@@ -24,10 +23,10 @@ public class LoadingScreen : MonoBehaviour
     public IEnumerator LoadSceneAsync(string sceneName)
     {
         AsyncOperation loading = UnityEngine.SceneManagement.SceneManager.LoadSceneAsync(sceneName);
-        loading.allowSceneActivation = false;
+
         int i = 0;
 
-        while (loading.progress < 0.9f)
+        while (!loading.isDone)
         {
             if (Time.deltaTime % 1 == 0)
             {
@@ -36,8 +35,5 @@ public class LoadingScreen : MonoBehaviour
             loadingText.text = "Loading" + new string('.', i % 3);
             yield return null;
         }
-        GameManager.instance.FadeIn(0.5f);
-        yield return new WaitForSeconds(0.5f);
-        loading.allowSceneActivation = true;
     }
 }

@@ -14,6 +14,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   maxHP: 100
   currentHP: 0
+  hpRegenRate: 2
+  hpRegenDelay: 3
   maxStamina: 100
   currentStamina: 100
   staminaRegenRate: 2

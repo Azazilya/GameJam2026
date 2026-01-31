@@ -36,20 +36,11 @@ public class GameManager : Singleton<GameManager>
 
     public void ChangeScene(string sceneName)
     {
-        FadeIn(0.5f);
+        FadeIn(1f);
         DOVirtual.DelayedCall(1f, () =>
         {
             SceneLoadManager.sceneToLoad = sceneName;
             UnityEngine.SceneManagement.SceneManager.LoadScene("LoadingScreen");
-        });
-    }
-
-    public void QuitGame()
-    {
-        FadeIn(0.5f);
-        DOVirtual.DelayedCall(1f, () =>
-        {
-            Application.Quit();
         });
     }
 }
