@@ -76,16 +76,26 @@ public class PlayerAttack : MonoBehaviour
 
     private IEnumerator RotateAttackRoutine(PlayerStateData state)
     {
-        isAttacking = true; // Tetap true agar trigger damage bekerja
+        isAttacking = true; 
         isRotating = true;
         if (attackCollider != null) attackCollider.enabled = true;
 
+        // 1. CEK MIRROR: Jika handRenderer flipY aktif, balikkan arah rotasi
+        // Kita gunakan pengali (multiplier) 1 atau -1
+        float rotationDirection = handRenderer.flipY ? -1f : 1f;
+        
+        // Jika Anda menggunakan flipVerticalManual, pastikan logika di bawah ini 
+        // selaras dengan cara Anda membalikkan tangan di RotateHand()
+        if (flipVerticalManual) rotationDirection *= -1f; 
+
         Quaternion startRotation = transform.localRotation;
-        // Tentukan arah ayunan (misal: memutar searah jarum jam)
-        Quaternion targetRotation = startRotation * Quaternion.Euler(0, 0, state.rotateAngle);
+        
+        // 2. TERAPKAN ARAH: Kalikan rotateAngle dengan rotationDirection
+        float targetAngle = state.rotateAngle * rotationDirection;
+        Quaternion targetRotation = startRotation * Quaternion.Euler(0, 0, targetAngle);
 
         float elapsed = 0;
-        // 1. Ayunan ke depan
+        // Ayunan ke depan
         while (elapsed < state.rotateDuration)
         {
             elapsed += Time.deltaTime;
@@ -93,13 +103,11 @@ public class PlayerAttack : MonoBehaviour
             yield return null;
         }
 
-        // 2. Jeda sangat singkat (opsional)
         yield return new WaitForSeconds(0.05f);
 
-        // 3. Matikan collider lebih awal agar tidak hit dua kali saat kembali
         if (attackCollider != null) attackCollider.enabled = false;
 
-        // 4. Kembali ke posisi awal
+        // Kembali ke posisi awal
         elapsed = 0;
         while (elapsed < state.rotateDuration)
         {
