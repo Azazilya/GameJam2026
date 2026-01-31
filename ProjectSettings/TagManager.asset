@@ -5,6 +5,9 @@ TagManager:
   serializedVersion: 3
   tags:
   - Enemy
+  serializedVersion: 3
+  tags:
+  - Enemy
   layers:
   - Default
   - TransparentFX
@@ -12,10 +15,10 @@ TagManager:
   - Player
   - Water
   - UI
-  - 
-  - 
-  - 
-  - 
+  - Player
+  - Obstacle
+  - Hiasan
+  - Background
   - 
   - 
   - 
@@ -41,6 +44,23 @@ TagManager:
   m_SortingLayers:
   - name: Default
     uniqueID: 0
+    locked: 0
+  m_RenderingLayers:
+  - Default
+  - name: Ui
+    uniqueID: 3928444687
+    locked: 0
+  - name: Player
+    uniqueID: 3444420697
+    locked: 0
+  - name: Obstacle
+    uniqueID: 4222060645
+    locked: 0
+  - name: Hiasan
+    uniqueID: 1145255009
+    locked: 0
+  - name: Background
+    uniqueID: 1444867803
     locked: 0
   m_RenderingLayers:
   - Default
