@@ -31,7 +31,7 @@ MonoBehaviour:
   handAttack:
   - {fileID: -2945594084956366740, guid: 8e646161bde902448ae66a3f49c0c615, type: 3}
   useRotateAttack: 1
-  rotateAngle: 90
+  rotateAngle: -180
   rotateDuration: 0.1
   chargeThreshold: 0.5
   superChargeThreshold: 13

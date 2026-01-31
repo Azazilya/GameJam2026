@@ -30,6 +30,7 @@ public class BossAI : MonoBehaviour
     private float animTimer;
     private int currentFrame;
     private bool isAttacking;
+    private int attacksRemaining = 0;
 
     void Start()
     {
@@ -70,6 +71,8 @@ public class BossAI : MonoBehaviour
                 agent.isStopped = true;
                 if (distanceToPlayer <= detectionRadius) 
                 {
+                    // Saat pertama kali melihat player, tentukan jumlah serangan (1-3)
+                    attacksRemaining = Random.Range(1, 4); 
                     currentState = BossState.Chase;
                     agent.isStopped = false;
                 }
@@ -78,18 +81,17 @@ public class BossAI : MonoBehaviour
             case BossState.Chase:
                 agent.SetDestination(playerTransform.position);
                 
-                if (distanceToPlayer <= attackRange)
+                // Hanya menyerang jika jarak cukup dan masih punya jatah serangan
+                if (distanceToPlayer <= attackRange && !isAttacking)
                 {
                     StartCoroutine(AttackSequence());
                 }
                 break;
 
             case BossState.Attack:
-                // Logika serangan ditangani Coroutine
                 break;
 
             case BossState.Retreat:
-                // Menghitung titik menjauh dari player
                 Vector2 dirAway = (transform.position - playerTransform.position).normalized;
                 Vector3 retreatPos = transform.position + (Vector3)dirAway * retreatDistance;
                 agent.SetDestination(retreatPos);
@@ -179,14 +181,25 @@ public class BossAI : MonoBehaviour
         
         if (attackCollider) attackCollider.enabled = true;
 
-        // Durasi serangan berdasarkan attackSpeed di BossData
+        // Durasi serangan
         yield return new WaitForSeconds(1f / bossData.attackSpeed);
 
         if (attackCollider) attackCollider.enabled = false;
         isAttacking = false;
         
-        // Masuk ke fase Retreat
-        StartCoroutine(RetreatRoutine());
+        attacksRemaining--; // Kurangi jatah serangan
+
+        if (attacksRemaining <= 0)
+        {
+            // Jika jatah habis, baru mundur
+            StartCoroutine(RetreatRoutine());
+        }
+        else
+        {
+            // Jika masih ada jatah, kembali mengejar player untuk serangan berikutnya
+            currentState = BossState.Chase;
+            agent.isStopped = false;
+        }
     }
 
     private IEnumerator RetreatRoutine()
@@ -196,6 +209,8 @@ public class BossAI : MonoBehaviour
         
         yield return new WaitForSeconds(retreatDuration);
         
+        // Setelah selesai mundur, tentukan lagi jumlah serangan untuk fase berikutnya
+        attacksRemaining = Random.Range(1, 4); 
         currentState = BossState.Chase;
     }
 }
