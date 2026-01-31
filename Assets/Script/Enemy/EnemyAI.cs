@@ -57,7 +57,10 @@ public class EnemyAI : MonoBehaviour
 
     void HandleRoaming()
     {
-        // Cek jika sudah sampai di tujuan
+        // Validasi tambahan: Pastikan agen aktif, ada di NavMesh, dan memiliki jalur (path)
+        if (!agent.isOnNavMesh || !agent.isActiveAndEnabled) return;
+
+        // Cek jika sudah sampai di tujuan menggunakan validasi pathPending
         if (!agent.pathPending && agent.remainingDistance <= agent.stoppingDistance)
         {
             if (!isWaiting)
