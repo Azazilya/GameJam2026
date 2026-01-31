@@ -1,0 +1,952 @@
+fileFormatVersion: 2
+guid: 8e646161bde902448ae66a3f49c0c615
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: 4398483246103012425
+    second: Player & Boss v3_0
+  - first:
+      213: 4089758950282689032
+    second: Player & Boss v3_1
+  - first:
+      213: 1300525561132071266
+    second: Player & Boss v3_2
+  - first:
+      213: -8760881154875911485
+    second: Player & Boss v3_3
+  - first:
+      213: 2206111463630835515
+    second: Player & Boss v3_4
+  - first:
+      213: 8358420791269900956
+    second: Player & Boss v3_5
+  - first:
+      213: -2453802261122339818
+    second: Player & Boss v3_6
+  - first:
+      213: -1740562650996993813
+    second: Player & Boss v3_7
+  - first:
+      213: -5244261512844014994
+    second: Player & Boss v3_8
+  - first:
+      213: -1961357331451770919
+    second: Player & Boss v3_9
+  - first:
+      213: -2661051164774083017
+    second: Player & Boss v3_10
+  - first:
+      213: -8009328371116781541
+    second: Player & Boss v3_11
+  - first:
+      213: 6386873184871591768
+    second: Player & Boss v3_12
+  - first:
+      213: 3139472533075582600
+    second: Player & Boss v3_13
+  - first:
+      213: 8801309253850326405
+    second: Player & Boss v3_14
+  - first:
+      213: -828418717639178227
+    second: Player & Boss v3_15
+  - first:
+      213: 8508815301438631025
+    second: Player & Boss v3_16
+  - first:
+      213: -7509380665392159539
+    second: Player & Boss v3_17
+  - first:
+      213: -2945594084956366740
+    second: Player & Boss v3_18
+  - first:
+      213: 5163626619230743967
+    second: Player & Boss v3_19
+  - first:
+      213: -6349892941942615463
+    second: Player & Boss v3_20
+  - first:
+      213: 2955596463114726245
+    second: Player & Boss v3_21
+  - first:
+      213: -8642776924209775229
+    second: Player & Boss v3_22
+  - first:
+      213: -7948418951636351243
+    second: Player & Boss v3_23
+  - first:
+      213: -5213213493722179676
+    second: Player & Boss v3_24
+  - first:
+      213: 4328615594055518808
+    second: Player & Boss v3_25
+  - first:
+      213: -1426482461835427404
+    second: Player & Boss v3_26
+  - first:
+      213: 2594096078374092371
+    second: Player & Boss v3_27
+  - first:
+      213: 6947118876445792557
+    second: Player & Boss v3_28
+  - first:
+      213: 420020175110035198
+    second: Player & Boss v3_29
+  - first:
+      213: 8716704379371321788
+    second: Player & Boss v3_30
+  - first:
+      213: -1200645181861579908
+    second: Player & Boss v3_31
+  - first:
+      213: -1564102357778742939
+    second: Player & Boss v3_32
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 1
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 4
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: Player & Boss v3_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 2100
+        width: 300
+        height: 300
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 9442a7a453d8a0d30800000000000000
+      internalID: 4398483246103012425
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Player & Boss v3_1
+      rect:
+        serializedVersion: 2
+        x: 300
+        y: 2100
+        width: 300
+        height: 300
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 80af298c81eb1c830800000000000000
+      internalID: 4089758950282689032
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Player & Boss v3_2
+      rect:
+        serializedVersion: 2
+        x: 600
+        y: 2100
+        width: 300
+        height: 300
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 269b79c7b156c0210800000000000000
+      internalID: 1300525561132071266
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Player & Boss v3_3
+      rect:
+        serializedVersion: 2
+        x: 900
+        y: 2100
+        width: 300
+        height: 300
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 3c2153cb1091b6680800000000000000
+      internalID: -8760881154875911485
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Player & Boss v3_4
+      rect:
+        serializedVersion: 2
+        x: 1200
+        y: 2100
+        width: 300
+        height: 300
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b3f02ac00bead9e10800000000000000
+      internalID: 2206111463630835515
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Player & Boss v3_5
+      rect:
+        serializedVersion: 2
+        x: 1500
+        y: 2100
+        width: 300
+        height: 300
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c92c1e2cc631ff370800000000000000
+      internalID: 8358420791269900956
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Player & Boss v3_6
+      rect:
+        serializedVersion: 2
+        x: 1800
+        y: 2100
+        width: 300
+        height: 300
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 61ca0c428d752fdd0800000000000000
+      internalID: -2453802261122339818
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Player & Boss v3_7
+      rect:
+        serializedVersion: 2
+        x: 2100
+        y: 2100
+        width: 300
+        height: 300
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: be01306ad7748d7e0800000000000000
+      internalID: -1740562650996993813
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Player & Boss v3_8
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 1800
+        width: 300
+        height: 300
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e6a0ea970f3a837b0800000000000000
+      internalID: -5244261512844014994
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Player & Boss v3_9
+      rect:
+        serializedVersion: 2
+        x: 300
+        y: 1800
+        width: 300
+        height: 300
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 9d7853516ebd7c4e0800000000000000
+      internalID: -1961357331451770919
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Player & Boss v3_10
+      rect:
+        serializedVersion: 2
+        x: 600
+        y: 1800
+        width: 300
+        height: 300
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 7365082801c021bd0800000000000000
+      internalID: -2661051164774083017
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Player & Boss v3_11
+      rect:
+        serializedVersion: 2
+        x: 900
+        y: 1800
+        width: 300
+        height: 300
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b10502e184629d090800000000000000
+      internalID: -8009328371116781541
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Player & Boss v3_12
+      rect:
+        serializedVersion: 2
+        x: 1200
+        y: 1800
+        width: 300
+        height: 300
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 85f2db1925bb2a850800000000000000
+      internalID: 6386873184871591768
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Player & Boss v3_13
+      rect:
+        serializedVersion: 2
+        x: 1500
+        y: 1800
+        width: 300
+        height: 300
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 88ed01c92a5a19b20800000000000000
+      internalID: 3139472533075582600
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Player & Boss v3_14
+      rect:
+        serializedVersion: 2
+        x: 1800
+        y: 1800
+        width: 300
+        height: 300
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 5856b129228842a70800000000000000
+      internalID: 8801309253850326405
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Player & Boss v3_15
+      rect:
+        serializedVersion: 2
+        x: 2100
+        y: 1800
+        width: 300
+        height: 300
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d0805d1c09dd084f0800000000000000
+      internalID: -828418717639178227
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Player & Boss v3_16
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 1500
+        width: 300
+        height: 300
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 17c68ad5f62651670800000000000000
+      internalID: 8508815301438631025
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Player & Boss v3_17
+      rect:
+        serializedVersion: 2
+        x: 300
+        y: 1500
+        width: 300
+        height: 300
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: dc42d1c321259c790800000000000000
+      internalID: -7509380665392159539
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Player & Boss v3_18
+      rect:
+        serializedVersion: 2
+        x: 600
+        y: 1500
+        width: 300
+        height: 300
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c681fa149c52f17d0800000000000000
+      internalID: -2945594084956366740
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Player & Boss v3_19
+      rect:
+        serializedVersion: 2
+        x: 900
+        y: 1500
+        width: 300
+        height: 300
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f9deff75d03e8a740800000000000000
+      internalID: 5163626619230743967
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Player & Boss v3_20
+      rect:
+        serializedVersion: 2
+        x: 1200
+        y: 1500
+        width: 300
+        height: 300
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 95210c13306a0e7a0800000000000000
+      internalID: -6349892941942615463
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Player & Boss v3_21
+      rect:
+        serializedVersion: 2
+        x: 1500
+        y: 1500
+        width: 300
+        height: 300
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 56baa53e253640920800000000000000
+      internalID: 2955596463114726245
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Player & Boss v3_22
+      rect:
+        serializedVersion: 2
+        x: 1800
+        y: 1500
+        width: 300
+        height: 300
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 38d7887cd20be0880800000000000000
+      internalID: -8642776924209775229
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Player & Boss v3_23
+      rect:
+        serializedVersion: 2
+        x: 2100
+        y: 1500
+        width: 300
+        height: 300
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 5f68bb5731b81b190800000000000000
+      internalID: -7948418951636351243
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Player & Boss v3_24
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 1200
+        width: 300
+        height: 300
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 4a79a60c2f1f6a7b0800000000000000
+      internalID: -5213213493722179676
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Player & Boss v3_25
+      rect:
+        serializedVersion: 2
+        x: 300
+        y: 1200
+        width: 300
+        height: 300
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 85a45e4e2f4521c30800000000000000
+      internalID: 4328615594055518808
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Player & Boss v3_26
+      rect:
+        serializedVersion: 2
+        x: 600
+        y: 1200
+        width: 300
+        height: 300
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 4b189ff32cd143ce0800000000000000
+      internalID: -1426482461835427404
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Player & Boss v3_27
+      rect:
+        serializedVersion: 2
+        x: 900
+        y: 1200
+        width: 300
+        height: 300
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 35eb8b0a3a4100420800000000000000
+      internalID: 2594096078374092371
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Player & Boss v3_28
+      rect:
+        serializedVersion: 2
+        x: 1200
+        y: 1200
+        width: 300
+        height: 300
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d2956fa8fcf196060800000000000000
+      internalID: 6947118876445792557
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Player & Boss v3_29
+      rect:
+        serializedVersion: 2
+        x: 1500
+        y: 1200
+        width: 300
+        height: 300
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ef65ee7bf1634d500800000000000000
+      internalID: 420020175110035198
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Player & Boss v3_30
+      rect:
+        serializedVersion: 2
+        x: 1800
+        y: 1200
+        width: 300
+        height: 300
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: cb9f4803374f7f870800000000000000
+      internalID: 8716704379371321788
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Player & Boss v3_31
+      rect:
+        serializedVersion: 2
+        x: 2100
+        y: 1200
+        width: 300
+        height: 300
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c733bd18193765fe0800000000000000
+      internalID: -1200645181861579908
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    customData: 
+    physicsShape: []
+    bones: []
+    spriteID: 4d28a034e4c94ee44af9d4dca22c5847
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    spriteCustomMetadata:
+      entries: []
+    nameFileIdTable:
+      Player & Boss v3_0: 4398483246103012425
+      Player & Boss v3_1: 4089758950282689032
+      Player & Boss v3_10: -2661051164774083017
+      Player & Boss v3_11: -8009328371116781541
+      Player & Boss v3_12: 6386873184871591768
+      Player & Boss v3_13: 3139472533075582600
+      Player & Boss v3_14: 8801309253850326405
+      Player & Boss v3_15: -828418717639178227
+      Player & Boss v3_16: 8508815301438631025
+      Player & Boss v3_17: -7509380665392159539
+      Player & Boss v3_18: -2945594084956366740
+      Player & Boss v3_19: 5163626619230743967
+      Player & Boss v3_2: 1300525561132071266
+      Player & Boss v3_20: -6349892941942615463
+      Player & Boss v3_21: 2955596463114726245
+      Player & Boss v3_22: -8642776924209775229
+      Player & Boss v3_23: -7948418951636351243
+      Player & Boss v3_24: -5213213493722179676
+      Player & Boss v3_25: 4328615594055518808
+      Player & Boss v3_26: -1426482461835427404
+      Player & Boss v3_27: 2594096078374092371
+      Player & Boss v3_28: 6947118876445792557
+      Player & Boss v3_29: 420020175110035198
+      Player & Boss v3_3: -8760881154875911485
+      Player & Boss v3_30: 8716704379371321788
+      Player & Boss v3_31: -1200645181861579908
+      Player & Boss v3_4: 2206111463630835515
+      Player & Boss v3_5: 8358420791269900956
+      Player & Boss v3_6: -2453802261122339818
+      Player & Boss v3_7: -1740562650996993813
+      Player & Boss v3_8: -5244261512844014994
+      Player & Boss v3_9: -1961357331451770919
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

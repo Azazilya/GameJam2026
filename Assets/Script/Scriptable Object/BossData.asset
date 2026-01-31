@@ -1,0 +1,38 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e39b9dc639a799148ad167d5f0fe9611, type: 3}
+  m_Name: BossData
+  m_EditorClassIdentifier: 
+  bossName: Hacker
+  maxHP: 400
+  defense: 10
+  attackDamage: 20
+  attackSpeed: 1
+  knockbackForce: 10
+  movementSpeed: 4
+  headIdle:
+  - {fileID: 3515636847780576716, guid: e364897afb5e61546969a65e58cf07bd, type: 3}
+  headWalkDepan:
+  - {fileID: -4488631467225459115, guid: e364897afb5e61546969a65e58cf07bd, type: 3}
+  headWalkBelakang:
+  - {fileID: 5588575825370393132, guid: e364897afb5e61546969a65e58cf07bd, type: 3}
+  headWalkSamping:
+  - {fileID: 1614514576324250236, guid: e364897afb5e61546969a65e58cf07bd, type: 3}
+  handIdle:
+  - {fileID: 262294191, guid: e364897afb5e61546969a65e58cf07bd, type: 3}
+  - {fileID: 910760245, guid: e364897afb5e61546969a65e58cf07bd, type: 3}
+  - {fileID: -1855651092, guid: e364897afb5e61546969a65e58cf07bd, type: 3}
+  handAttack:
+  - {fileID: -1578403688, guid: e364897afb5e61546969a65e58cf07bd, type: 3}
+  - {fileID: -1113159389, guid: e364897afb5e61546969a65e58cf07bd, type: 3}
+  - {fileID: -1964632043, guid: e364897afb5e61546969a65e58cf07bd, type: 3}
+  bossThemeColor: {r: 1, g: 1, b: 1, a: 1}
