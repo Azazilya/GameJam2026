@@ -1,4 +1,5 @@
 using UnityEngine;
+using System.Collections;
 
 public class PlayerController : MonoBehaviour
 {
@@ -7,6 +8,17 @@ public class PlayerController : MonoBehaviour
     private int currentStateIndex = 0;
     private PlayerStateData currentState;
     public PlayerStateData GetCurrentState() => currentState;
+
+    private float originalCameraSize;
+    private bool isSwitching = false;
+    private Vector2 lastMoveInput; // Untuk menyimpan arah pergerakan terakhir
+
+    [Header("Switch State Effects")]
+    [SerializeField] private float zoomInSize = 3f;      // Besar zoom saat ganti topeng
+    [SerializeField] private float zoomDuration = 0.2f;  // Durasi transisi zoom
+    [SerializeField] private float pauseDuration = 0.5f; // Berapa lama game berhenti
+    [SerializeField] private float dashForce = 20f;      // Kekuatan dash setelah ganti
+    [SerializeField] private float dashDuration = 0.15f; // Berapa lama dash berlangsung
 
     [Header("References")]
     [SerializeField] private GameObject playerHolder;
@@ -41,6 +53,7 @@ public class PlayerController : MonoBehaviour
     private float idleTimer;
     private int currentFrame;
     private bool isIdle;
+    private bool isSlowed = false;
 
     void Start()
     {
@@ -50,19 +63,77 @@ public class PlayerController : MonoBehaviour
         rb.collisionDetectionMode = CollisionDetectionMode2D.Continuous;
 
         if (allStates != null && allStates.Length > 0) currentState = allStates[0];
+
+        if (mainCamera != null) originalCameraSize = mainCamera.orthographicSize;
+        rb = GetComponent<Rigidbody2D>();
     }
 
     void Update()
     {
+        if (isSwitching) return; // Jangan terima input saat sedang transisi ganti topeng
+
         moveInput.x = Input.GetAxisRaw("Horizontal");
         moveInput.y = Input.GetAxisRaw("Vertical");
-        moveInput = moveInput.normalized;
+        
+        if (moveInput.magnitude > 0.1f)
+        {
+            moveInput = moveInput.normalized;
+            lastMoveInput = moveInput; // Catat arah terakhir untuk dash
+        }
 
-        if (Input.GetKeyDown(KeyCode.Q)) SwitchState();
+        // Ganti fungsi Q menjadi Coroutine
+        if (Input.GetKeyDown(KeyCode.Q)) StartCoroutine(SwitchStateRoutine());
 
         HandleIdleLogic();
         HandleAnimation(); 
         SyncHeadWithBody(); 
+    }
+
+    private IEnumerator SwitchStateRoutine()
+    {
+        isSwitching = true;
+        
+        // 1. ZOOM IN & PAUSE
+        float elapsed = 0f;
+        while (elapsed < zoomDuration)
+        {
+            elapsed += Time.unscaledDeltaTime; // Gunakan unscaled karena nanti Time.timeScale akan 0
+            mainCamera.orthographicSize = Mathf.Lerp(originalCameraSize, zoomInSize, elapsed / zoomDuration);
+            yield return null;
+        }
+
+        // Berhentikan waktu (Pause Musuh & Player)
+        Time.timeScale = 0f; 
+
+        // 2. SWITCH STATE (Ganti Topeng)
+        if (allStates != null && allStates.Length > 0)
+        {
+            currentStateIndex = (currentStateIndex + 1) % allStates.Length;
+            currentState = allStates[currentStateIndex];
+            Debug.Log("Switched to: " + currentState.name);
+        }
+
+        // Tunggu sebentar dalam keadaan pause
+        yield return new WaitForSecondsRealtime(pauseDuration);
+
+        // 3. ZOOM OUT & UNPAUSE
+        Time.timeScale = 1f;
+        elapsed = 0f;
+        while (elapsed < zoomDuration)
+        {
+            elapsed += Time.deltaTime;
+            mainCamera.orthographicSize = Mathf.Lerp(zoomInSize, originalCameraSize, elapsed / zoomDuration);
+            yield return null;
+        }
+
+        // 4. DASH (Penambahan velocity tiba-tiba)
+        if (lastMoveInput.magnitude > 0.1f)
+        {
+            rb.linearVelocity = lastMoveInput * dashForce;
+            yield return new WaitForSeconds(dashDuration);
+        }
+
+        isSwitching = false;
     }
 
     void SyncHeadWithBody()
@@ -97,9 +168,18 @@ public class PlayerController : MonoBehaviour
         }
     }
 
+    public void SetSlowdown(bool slowed) => isSlowed = slowed;
+
     void FixedUpdate()
     {
-        if (currentState != null) rb.linearVelocity = moveInput * currentState.movementSpeed;
+        if (isSwitching) return; 
+
+        if (currentState != null)
+        {
+            float currentSpeed = currentState.movementSpeed;
+            if (isSlowed) currentSpeed *= (1f - currentState.chargeMovementPenalty);
+            rb.linearVelocity = moveInput * currentSpeed;
+        }
     }
 
     void LateUpdate() => HandleDynamicCamera();
